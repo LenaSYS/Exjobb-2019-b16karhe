@@ -1,15 +1,7 @@
-var connectAng = require('connect'),
+var connect = require('connect'),
 serveStatic = require('serve-static');
 
-var ang = connectAng();
+var connection = connect();
 
-ang.use(serveStatic("node_modules/angular"));
-ang.listen(5000);
-
-var connectVue = require('connect'),
-serveStatic = require('serve-static');
-
-var vue = connectVue();
-
-vue.use(serveStatic("node_modules/vue"));
-vue.listen(5001);
+connection.use(serveStatic("node_modules"));
+connection.listen(5000);
