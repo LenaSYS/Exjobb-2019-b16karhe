@@ -1,6 +1,6 @@
 # Examensarbete "angular VS vue"
 
-### Repository for "Examensarbete inom webbprogrammering IT606G VT19" by Karl Hermansson.
+## Repository for "Examensarbete inom webbprogrammering IT606G VT19" by Karl Hermansson.
 
 
 ### For angularJS application:
