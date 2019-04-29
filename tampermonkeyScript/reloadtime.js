@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Reloadtime
-// @version      13.37
+// @version      133.7
 // @author       Karl Hermansson (b16karhe)
 // @match        http://localhost:5000/angular/
 // @match        http://localhost:5000/vue/

@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         Addtime
-// @version      13.37
+// @version      133.7
 // @author       Karl Hermansson (b16karhe)
 // @match        http://localhost:5000/angular/
 // @match        http://localhost:5000/vue/
 // @require http://code.jquery.com/jquery-3.3.1.min.js
+// @require http://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.1/seedrandom.min.js
 // ==/UserScript==
 
 var $ = window.jQuery;
@@ -13,22 +14,21 @@ var start;
 var i = 0;
 var prevLength = 999;
 var counter = 0;
-var x = document.getElementsByClassName("radioLabel");
-var y = document.getElementById("addButton");
-var z = document.getElementsByClassName("lista");
-
-
+var radioLabel = document.getElementsByClassName("radioLabel");
+var addButton = document.getElementById("addButton");
+var lista = document.getElementsByClassName("lista");
+Math.seedrandom(1337);
 
 $("body").on('DOMSubtreeModified', "#theCart", function() {
-    if(z.length != prevLength){
-        prevLength = z.length;
+    if(lista.length != prevLength){
+        prevLength = lista.length;
         stop = performance.timing.navigationStart + performance.now();
         var diff = stop - start;
         localStorage.setItem("diff" + counter, diff);
         counter++;
-        if(counter == 100){
+        if(counter == 101){
             var data = "";
-            for(let i = 0; i < counter; i++){
+            for(let i = 1; i < counter; i++){
                 data += localStorage.getItem("diff" + i) + "\n";
             }
             console.log(data);
@@ -37,10 +37,10 @@ $("body").on('DOMSubtreeModified', "#theCart", function() {
     }
 });
 var intervalID = setInterval(function(){
-    $(x[i]).click();
-    i = Math.floor(Math.random() * 3000);
+    $(radioLabel[i]).click();
+    i = Math.floor(Math.random() * 5);
     window.setTimeout(function(){
         start = performance.timing.navigationStart + performance.now();
-        $(y).click();
+        $(addButton).click();
     }, 250);
 }, 500);
